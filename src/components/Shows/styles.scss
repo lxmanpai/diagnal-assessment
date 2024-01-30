@@ -1,0 +1,16 @@
+.list-wrapper {
+  max-width: 480px;
+  margin: auto;
+  height: 100vh;
+  background-color: #000;
+  color: #fff;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  .show-list-wrapper {
+    background-color: #171717;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 6px;
+  }
+}
