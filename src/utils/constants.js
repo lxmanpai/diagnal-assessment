@@ -1,5 +1,5 @@
 // Reading data from .env file config
-export const BASE_URL = process.env.REACT_APP_BASE_URL
+export const BASE_URL = "https://test.create.diagnal.com"
 
 // Miscellaneous data to be configured on app level
 export const SHOW_PAGE_TITLE = "Romantic Comedy"
