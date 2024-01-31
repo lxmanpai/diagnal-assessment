@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/diagnal-assessment/static/css/main.0f0b3211.css",
+    "main.js": "/diagnal-assessment/static/js/main.03c49475.js",
+    "static/js/787.1367b8f2.chunk.js": "/diagnal-assessment/static/js/787.1367b8f2.chunk.js",
+    "index.html": "/diagnal-assessment/index.html",
+    "static/media/loader.svg": "/diagnal-assessment/static/media/loader.547fa61d671948e7a99e56509bd83133.svg",
+    "main.0f0b3211.css.map": "/diagnal-assessment/static/css/main.0f0b3211.css.map",
+    "main.03c49475.js.map": "/diagnal-assessment/static/js/main.03c49475.js.map",
+    "787.1367b8f2.chunk.js.map": "/diagnal-assessment/static/js/787.1367b8f2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0f0b3211.css",
+    "static/js/main.03c49475.js"
+  ]
+}
