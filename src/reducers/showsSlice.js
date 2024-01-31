@@ -58,16 +58,14 @@ export const getShowsList = (pageNo, cb) => (dispatch) => {
     .then((res) => {
       if (pageNo > 1) {
         // For case where we are appending data to existing data
-        dispatch(
-          appendFilteredShows(res?.data?.page?.["content-items"]?.content || [])
-        )
-        dispatch(appendShows(res?.data?.page?.["content-items"]?.content || []))
+        const newData = res?.data?.page?.["content-items"]?.content || []
+        dispatch(appendFilteredShows(newData))
+        dispatch(appendShows(newData))
       } else {
         // Case when we are fetching first page to set initial data
-        dispatch(
-          setFilteredShows(res?.data?.page?.["content-items"]?.content || [])
-        )
-        dispatch(setAllShows(res?.data?.page?.["content-items"]?.content || []))
+        const initData = res?.data?.page?.["content-items"]?.content || []
+        dispatch(setFilteredShows(initData))
+        dispatch(setAllShows(initData))
       }
     })
     .catch((e) => {

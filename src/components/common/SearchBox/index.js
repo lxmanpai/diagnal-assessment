@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from "react"
+import React, { useRef, useCallback, useEffect } from "react"
 import debounce from "lodash.debounce"
 import { useDispatch, useSelector } from "react-redux"
 
@@ -13,10 +13,15 @@ const SearchBox = () => {
   const dispatch = useDispatch()
   const { allShows } = useSelector((state) => state.shows)
   const inputRef = useRef(null)
+  const showsRef = useRef(null)
 
   const handleSearchClick = () => {
     inputRef.current.classList.add("toggle")
   }
+
+  useEffect(() => {
+    showsRef.current = allShows
+  }, [allShows])
 
   // Debounce UI search by 0.4 seconds
   const debounceFn = useCallback(
@@ -38,7 +43,7 @@ const SearchBox = () => {
   // Function that filters the data based on search query post debounce
   const handleSearch = (query) => {
     dispatch(setSearchQuery(query))
-    dispatch(setFilteredShows(searchShows(allShows, query)))
+    dispatch(setFilteredShows(searchShows(showsRef.current, query)))
   }
 
   return (
