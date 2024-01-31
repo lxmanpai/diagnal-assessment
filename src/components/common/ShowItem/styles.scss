@@ -1,11 +1,16 @@
 .show-item {
   margin: 6px;
+  overflow: hidden;
   img {
     max-height: 100%;
     max-width: 100%;
+    aspect-ratio: 2/3;
   }
   .show-title {
     margin-top: 6px;
     margin-bottom: 12px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 }

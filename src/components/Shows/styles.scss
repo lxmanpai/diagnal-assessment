@@ -13,4 +13,17 @@
     grid-template-columns: auto auto auto;
     padding: 6px;
   }
+  .no-results {
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    background-color: #171717;
+    overflow: hidden;
+  }
+  .loader-wrapper {
+    background-color: #171717;
+    display: flex;
+    justify-content: center;
+    padding: 6px;
+  }
 }

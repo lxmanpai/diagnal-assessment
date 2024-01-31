@@ -1,18 +1,22 @@
 import React from "react"
-import { FaArrowLeft, FaSistrix } from "react-icons/fa6"
 
-import { SHOW_PAGE_TITLE } from "../../../utils/constants"
+import { IMAGE_BASE_URL, SHOW_PAGE_TITLE } from "../../../utils/constants"
 
 import "./styles.scss"
+import SearchBox from "../SearchBox"
 
-const Header = () => {
-  return (
-    <div className="page-header">
-      <FaArrowLeft size="1.2rem" className="header-icon" />
-      <div className="page-title">{SHOW_PAGE_TITLE}</div>
-      <FaSistrix size="1.4rem" className="header-icon" />
-    </div>
-  )
-}
+const Header = () => (
+  <div className="page-header">
+    <img
+      className="header-icon"
+      width={18}
+      height={18}
+      src={`${IMAGE_BASE_URL}/Back.png`}
+      alt="Search"
+    />
+    <div className="page-title">{SHOW_PAGE_TITLE}</div>
+    <SearchBox />
+  </div>
+)
 
 export default Header

@@ -1,5 +1,6 @@
 .page-header {
   display: flex;
+  align-items: center;
   position: sticky;
   top: 0;
   padding: 20px 10px;
@@ -9,6 +10,10 @@
     font-size: 20px;
     margin-left: 12px;
     flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-right: 10px;
   }
 
   .header-icon {

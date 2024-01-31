@@ -1,17 +1,32 @@
 import React from "react"
 import { useSelector } from "react-redux"
-import "./styles.scss"
-import ShowItem from "../common/ShowItem/ShowItem"
 
-const ShowsList = () => {
-  const { allShows } = useSelector((state) => state.shows)
+import ShowItem from "../common/ShowItem/ShowItem"
+import Loader from "../../assets/loader.svg"
+
+import "./styles.scss"
+
+const ShowsList = ({ loading }) => {
+  const { filteredShows, searchQuery } = useSelector((state) => state.shows)
 
   return (
-    <div className="show-list-wrapper">
-      {allShows.map((show) => (
-        <ShowItem showData={show} />
-      ))}
-    </div>
+    <>
+      {searchQuery?.trim()?.length > 0 && !filteredShows?.length && (
+        <div className="no-results">No results found.</div>
+      )}
+      {filteredShows?.length > 0 && (
+        <div className="show-list-wrapper">
+          {filteredShows.map((show) => (
+            <ShowItem showData={show} />
+          ))}
+        </div>
+      )}
+      {loading && (
+        <div className="loader-wrapper">
+          <img src={Loader} alt="Loading..." />
+        </div>
+      )}
+    </>
   )
 }
 
