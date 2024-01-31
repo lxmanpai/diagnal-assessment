@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/diagnal-assessment/static/css/main.a7bb93b7.css",
-    "main.js": "/diagnal-assessment/static/js/main.38a3048e.js",
+    "main.css": "/diagnal-assessment/static/css/main.a9747039.css",
+    "main.js": "/diagnal-assessment/static/js/main.4e1fa6d9.js",
     "static/js/787.1367b8f2.chunk.js": "/diagnal-assessment/static/js/787.1367b8f2.chunk.js",
     "index.html": "/diagnal-assessment/index.html",
     "static/media/loader.svg": "/diagnal-assessment/static/media/loader.547fa61d671948e7a99e56509bd83133.svg",
-    "main.a7bb93b7.css.map": "/diagnal-assessment/static/css/main.a7bb93b7.css.map",
-    "main.38a3048e.js.map": "/diagnal-assessment/static/js/main.38a3048e.js.map",
+    "main.a9747039.css.map": "/diagnal-assessment/static/css/main.a9747039.css.map",
+    "main.4e1fa6d9.js.map": "/diagnal-assessment/static/js/main.4e1fa6d9.js.map",
     "787.1367b8f2.chunk.js.map": "/diagnal-assessment/static/js/787.1367b8f2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a7bb93b7.css",
-    "static/js/main.38a3048e.js"
+    "static/css/main.a9747039.css",
+    "static/js/main.4e1fa6d9.js"
   ]
 }
