@@ -9,3 +9,7 @@ export const IMAGE_BASE_URL = `${BASE_URL}/images`
 export const FALLBACK_POSTER_URL = `${BASE_URL}/images/placeholder_for_missing_posters.png`
 
 export const SEARCH_DEBOUNCE = 400
+export const MIN_SEARCH_QUERY = 2
+export const MAX_SEARCH_QUERY = 24
+
+export const DIAGNAL_HOME = "https://www.diagnal.com/"

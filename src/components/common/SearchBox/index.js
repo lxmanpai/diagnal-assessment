@@ -4,7 +4,12 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { setFilteredShows, setSearchQuery } from "../../../reducers/showsSlice"
 import { searchShows } from "../../../utils/helpers"
-import { IMAGE_BASE_URL, SEARCH_DEBOUNCE } from "../../../utils/constants"
+import {
+  IMAGE_BASE_URL,
+  MAX_SEARCH_QUERY,
+  MIN_SEARCH_QUERY,
+  SEARCH_DEBOUNCE,
+} from "../../../utils/constants"
 
 import "./styles.scss"
 
@@ -43,20 +48,27 @@ const SearchBox = () => {
   // Function that filters the data based on search query post debounce
   const handleSearch = (query) => {
     dispatch(setSearchQuery(query))
-    dispatch(setFilteredShows(searchShows(showsRef.current, query)))
+    if (query.length > MIN_SEARCH_QUERY) {
+      dispatch(setFilteredShows(searchShows(showsRef.current, query)))
+    } else {
+      dispatch(setFilteredShows(showsRef.current))
+    }
   }
 
   return (
     <div className="search">
       <input
+        autoFocus
         ref={inputRef}
-        className="input"
+        className="search-input"
         type="text"
+        maxLength={MAX_SEARCH_QUERY}
         placeholder="Titles, people, genres"
         onBlur={handleOnBlur}
         onChange={handleChange}
       />
-      <img
+      <input
+        type="image"
         className="search-icon"
         width={18}
         height={18}
