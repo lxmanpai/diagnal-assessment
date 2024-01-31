@@ -7,6 +7,7 @@ import { getShowsList, setPageNo } from "../../reducers/showsSlice"
 
 import "./styles.scss"
 
+// Shows screen which has header and list of shows
 const Shows = () => {
   const dispatch = useDispatch()
   const [loading, setLoading] = useState(false)
@@ -16,19 +17,24 @@ const Shows = () => {
 
   const listInnerRef = useRef(null)
 
+  // Fetch shows on load from page1
   useEffect(() => {
     dispatch(getShowsList(pageNo, () => setLoading(false)))
   }, [])
 
+  // Detect scroll to bottom to fetch next set of shows data
   const onScroll = () => {
     if (listInnerRef.current) {
       const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current
+      // Calculate scroll position to detect if the bottom is reached
       if (
         Math.abs(scrollHeight - (scrollTop + clientHeight)) <= 1 &&
         hasMoreData &&
         searchQuery?.trim().length === 0
       ) {
         setLoading(true)
+
+        // Logic to fetch next page in infinite scroll
         dispatch(getShowsList(pageNo + 1, () => setLoading(false)))
         dispatch(setPageNo(pageNo + 1))
       }

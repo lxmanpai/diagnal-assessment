@@ -5,6 +5,7 @@ import { IMAGE_BASE_URL, SHOW_PAGE_TITLE } from "../../../utils/constants"
 import "./styles.scss"
 import SearchBox from "../SearchBox"
 
+//Header component for shows screen
 const Header = () => (
   <div className="page-header">
     <img

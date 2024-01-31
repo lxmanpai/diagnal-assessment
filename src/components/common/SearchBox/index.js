@@ -8,6 +8,7 @@ import { IMAGE_BASE_URL, SEARCH_DEBOUNCE } from "../../../utils/constants"
 
 import "./styles.scss"
 
+//Search box component for shows screen
 const SearchBox = () => {
   const dispatch = useDispatch()
   const { allShows } = useSelector((state) => state.shows)
@@ -17,6 +18,7 @@ const SearchBox = () => {
     inputRef.current.classList.add("toggle")
   }
 
+  // Debounce UI search by 0.4 seconds
   const debounceFn = useCallback(
     debounce((inputValue) => {
       handleSearch(inputValue)
@@ -24,6 +26,7 @@ const SearchBox = () => {
     []
   )
 
+  // On click outside of search input
   const handleOnBlur = () => {
     if (inputRef?.current?.classList?.contains("toggle")) {
       inputRef.current.classList.remove("toggle")
@@ -32,6 +35,7 @@ const SearchBox = () => {
 
   const handleChange = (e) => debounceFn(e.target.value)
 
+  // Function that filters the data based on search query post debounce
   const handleSearch = (query) => {
     dispatch(setSearchQuery(query))
     dispatch(setFilteredShows(searchShows(allShows, query)))
@@ -54,7 +58,6 @@ const SearchBox = () => {
         src={`${IMAGE_BASE_URL}/search.png`}
         alt="Search"
         onClick={() => handleSearchClick()}
-        onBlur={handleOnBlur}
       />
     </div>
   )

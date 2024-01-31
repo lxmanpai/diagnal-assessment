@@ -2,8 +2,10 @@ import { createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
 import { BASE_URL } from "../utils/constants"
 
+// Shows redux slice to store shows related data
 export const shows = createSlice({
   name: "shows",
+  // Initial state of the slice with default data
   initialState: {
     pageNo: 1,
     searchQuery: "",
@@ -11,6 +13,7 @@ export const shows = createSlice({
     filteredShows: [],
     hasMoreData: true,
   },
+  // setter functions to modify different fields
   reducers: {
     setPageNo(state, action) {
       state.pageNo = action.payload
@@ -36,6 +39,7 @@ export const shows = createSlice({
   },
 })
 
+// Exporting all setters to expose them to the other components
 export const {
   setAllShows,
   setFilteredShows,
@@ -47,16 +51,19 @@ export const {
   setHasMoreData,
 } = shows.actions
 
+// Function to fetch the shows based on page number passed
 export const getShowsList = (pageNo, cb) => (dispatch) => {
   axios
     .get(`${BASE_URL}/data/page${pageNo}.json`)
     .then((res) => {
       if (pageNo > 1) {
+        // For case where we are appending data to existing data
         dispatch(
           appendFilteredShows(res?.data?.page?.["content-items"]?.content || [])
         )
         dispatch(appendShows(res?.data?.page?.["content-items"]?.content || []))
       } else {
+        // Case when we are fetching first page to set initial data
         dispatch(
           setFilteredShows(res?.data?.page?.["content-items"]?.content || [])
         )
@@ -65,9 +72,11 @@ export const getShowsList = (pageNo, cb) => (dispatch) => {
     })
     .catch((e) => {
       console.error(e.message)
+      // When the page returns error, it is marked as end of pagination
       dispatch(setHasMoreData(false))
     })
     .finally(() => {
+      // Any callback logic if needed on completion of API call
       if (cb instanceof Function) {
         cb()
       }

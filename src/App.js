@@ -4,8 +4,7 @@ import Shows from "./components/Shows"
 
 import "./App.scss"
 
-const App = () => {
-  return <Shows />
-}
+// Entry point of application
+const App = () => <Shows />
 
 export default App
